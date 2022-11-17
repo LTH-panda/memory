@@ -1,11 +1,27 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Header} from 'components/@module';
+import {
+  WriteActions,
+  WriteColorPalette,
+  WriteIconDropdown,
+  WriteMemoryCardPreview,
+  WriteMemoryInput,
+} from 'components/Write';
 
 function WriteScreen() {
   return (
-    <View>
-      <Text>WriteScreen</Text>
-    </View>
+    <SafeAreaView edges={['top']} className="flex-1 bg-beige">
+      <Header back="close" />
+      <View className="flex-1 px-4">
+        <WriteMemoryCardPreview />
+        <WriteMemoryInput />
+        <WriteColorPalette />
+        <WriteIconDropdown />
+        <WriteActions />
+      </View>
+    </SafeAreaView>
   );
 }
 

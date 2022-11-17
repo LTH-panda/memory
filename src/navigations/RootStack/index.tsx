@@ -10,7 +10,11 @@ function RootStack() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="MainTab" component={MainTab} />
-      <Stack.Screen name="Write" component={WriteScreen} />
+      <Stack.Screen
+        name="Write"
+        component={WriteScreen}
+        options={{animation: 'fade_from_bottom'}}
+      />
     </Stack.Navigator>
   );
 }

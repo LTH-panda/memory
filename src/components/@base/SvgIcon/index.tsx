@@ -8,7 +8,7 @@ type Props = SvgProps & {
   size?: number;
 };
 
-function SvgIcon({name, color = '#444', size = 20, ...rest}: Props) {
+function SvgIcon({name, color = '#444', size = 28, ...rest}: Props) {
   const Icon = Icons[name];
 
   return <Icon width={size} height={size} color={color} {...rest} />;

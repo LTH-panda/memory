@@ -1,11 +1,19 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Header} from 'components/@module';
+import {View} from 'react-native';
+import {MemoryCardList} from 'components/Memory';
+import {WriteFloatingButton} from 'components/Write';
 
 function HomeScreen() {
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
+    <SafeAreaView edges={['top']} className="flex-1 bg-beige">
+      <Header title="memory" />
+      <View className="flex-1 p-2">
+        <MemoryCardList />
+      </View>
+      <WriteFloatingButton />
+    </SafeAreaView>
   );
 }
 
