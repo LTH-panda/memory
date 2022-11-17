@@ -5,13 +5,15 @@ import useWriteStore from 'stores/useWriteStore';
 
 type Props = {
   name: string;
+  close: () => void;
 };
 
-function IconPressableItem({name}: Props) {
+function IconPressableItem({name, close}: Props) {
   const {setIcon} = useWriteStore();
 
   const onPress = useCallback(() => {
     setIcon(name);
+    close();
   }, []);
 
   return (

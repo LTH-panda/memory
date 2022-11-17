@@ -6,6 +6,7 @@ export type Memory = {
   content: string;
   color: string;
   icon: string;
+  time: number;
 };
 
 type State = {

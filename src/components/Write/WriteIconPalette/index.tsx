@@ -40,11 +40,15 @@ const iconPalette = [
   'umbrella',
 ];
 
-function WriteIconPalette() {
+type Props = {
+  close: () => void;
+};
+
+function WriteIconPalette({close}: Props) {
   return (
     <View className="flex-row flex-wrap items-center justify-between">
       {iconPalette.map(I => (
-        <IconPressableItem name={I} />
+        <IconPressableItem name={I} close={close} key={I} />
       ))}
     </View>
   );

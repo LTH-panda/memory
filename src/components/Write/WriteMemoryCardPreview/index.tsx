@@ -7,8 +7,8 @@ function WriteMemoryCardPreview() {
   const {content, color, icon} = useWriteStore();
 
   return (
-    <View className="items-center justify-center w-1/2 mx-auto">
-      <MemoryCardBase title={content} color={color} icon={icon} time={1} />
+    <View className="items-center justify-center w-1/2 mx-auto my-2">
+      <MemoryCardBase content={content} color={color} icon={icon} time={0} />
     </View>
   );
 }

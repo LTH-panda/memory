@@ -19,9 +19,15 @@ function WriteActions() {
   }, [content]);
 
   const onFinishPress = useCallback(() => {
-    saveMemory({id: shortid.generate(), content, color, icon});
+    saveMemory({
+      id: shortid.generate(),
+      content,
+      color,
+      icon,
+      time: Date.now(),
+    });
     replace('MainTab');
-  }, []);
+  }, [content, color, icon]);
 
   return (
     <View className="absolute inset-x-0 px-4 bottom-10">

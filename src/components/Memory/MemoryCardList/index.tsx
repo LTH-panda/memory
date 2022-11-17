@@ -1,15 +1,24 @@
-import {View, Text, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import React from 'react';
-import MemoryCardBase from '../MemoryCardBase';
-
-const data = [1, 2, 3, 4, 5];
+import useMemoryStore from 'stores/useMemoryStore';
+import MemoryPressableCard from '../MemoryPressableCard';
 
 function MemoryCardList() {
+  const {memories} = useMemoryStore();
+
   return (
     <FlatList
-      data={data}
-      renderItem={() => <MemoryCardBase />}
+      data={memories.reverse()}
+      renderItem={({item}) => (
+        <MemoryPressableCard
+          content={item.content}
+          color={item.color}
+          icon={item.icon}
+          time={item.time}
+        />
+      )}
       numColumns={2}
+      showsVerticalScrollIndicator={false}
     />
   );
 }

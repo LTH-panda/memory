@@ -16,7 +16,7 @@ function WriteIconDropdown() {
     <View className="z-10 p-4 my-2 bg-white rounded-2xl">
       {isOpen ? (
         <View>
-          <WriteIconPalette />
+          <WriteIconPalette close={close} />
           <Pressable
             onPress={close}
             hitSlop={4}
