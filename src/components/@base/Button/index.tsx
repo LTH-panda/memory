@@ -4,6 +4,7 @@ import styled from '@emotion/native';
 
 type Props = PressableProps & {
   bgColor?: string;
+  isFit?: boolean;
   children: React.ReactNode;
 };
 

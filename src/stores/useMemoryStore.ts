@@ -14,6 +14,7 @@ type State = {
   loadMemories: () => void;
   saveMemory: (by: Memory) => void;
   editMemory: (by: Memory) => void;
+  removeMemory: (by: Memory) => void;
 
   isVisibleDetailBottomSheet: boolean;
   openDetailBottomSheet: () => void;
@@ -37,6 +38,11 @@ const useMemoryStore = create<State>()((set, get) => ({
   },
   editMemory: async by => {
     const newMemoriesData = get().memories.map(M => (M.id === by.id ? by : M));
+    set(state => ({...state, memories: newMemoriesData}));
+    await memoryStorage.set(newMemoriesData);
+  },
+  removeMemory: async by => {
+    const newMemoriesData = get().memories.filter(M => M.id !== by.id);
     set(state => ({...state, memories: newMemoriesData}));
     await memoryStorage.set(newMemoriesData);
   },
