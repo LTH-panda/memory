@@ -1,4 +1,4 @@
-package com.memory;
+package com.memory.whale;
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivity;
@@ -19,7 +19,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "memory";
+    return "memoryWhale";
   }
 
 

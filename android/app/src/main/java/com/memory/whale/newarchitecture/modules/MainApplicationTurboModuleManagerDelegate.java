@@ -1,4 +1,4 @@
-package com.memory.newarchitecture.modules;
+package com.memory.whale.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
