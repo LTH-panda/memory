@@ -7,20 +7,18 @@ export default function getGapDate(base: Date, time: number) {
   const gapToNow = sub(base, {
     years: atDate.getFullYear(),
     months: atDate.getMonth() - 1,
-    days: atDate.getDate(),
+    days: atDate.getDate() - 1,
     hours: atDate.getHours(),
     minutes: atDate.getMinutes(),
     seconds: atDate.getSeconds(),
   });
 
-  const gapHours = gapToNow.getHours();
-
-  if (gapHours < 24)
+  if (gapToNow.getDate() <= 1)
     return `+${formatZeroOneDay({
-      hour: gapHours,
+      hour: gapToNow.getHours(),
       minutes: gapToNow.getMinutes(),
       seconds: gapToNow.getSeconds(),
     })}`;
 
-  return `+${gapToNow.getDate()}일`;
+  return `+${gapToNow.getDate() - 1}일`;
 }
