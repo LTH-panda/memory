@@ -1,11 +1,17 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Header} from 'components/@module';
+import {SettingsVersionCell} from 'components/Settings';
 
 function SettingsScreen() {
   return (
-    <View>
-      <Text>SettingsScreen</Text>
-    </View>
+    <SafeAreaView edges={['top']} className="flex-1 bg-beige">
+      <Header title="settings" />
+      <View className="flex-1">
+        <SettingsVersionCell />
+      </View>
+    </SafeAreaView>
   );
 }
 
