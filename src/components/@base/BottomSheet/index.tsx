@@ -18,6 +18,7 @@ function BottomSheet({isVisible, onBackDrop, children}: Props) {
       backdropTransitionOutTiming={200}
       animationInTiming={200}
       animationOutTiming={200}
+      hideModalContentWhileAnimating
       useNativeDriver
       className="justify-end m-0">
       <View className="p-4 pb-8 rounded-t-2xl bg-beige">{children}</View>
