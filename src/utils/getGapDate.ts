@@ -16,7 +16,11 @@ export default function getGapDate(base: Date, time: number) {
   const gapHours = gapToNow.getHours();
 
   if (gapHours < 24)
-    return `+${formatZeroOneDay(gapHours, gapToNow.getMinutes())}`;
+    return `+${formatZeroOneDay({
+      hour: gapHours,
+      minutes: gapToNow.getMinutes(),
+      seconds: gapToNow.getSeconds(),
+    })}`;
 
   return `+${gapToNow.getDate()}일`;
 }

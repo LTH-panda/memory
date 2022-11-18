@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Header} from 'components/@module';
 import {View} from 'react-native';
-import {MemoryCardList} from 'components/Memory';
+import {MemoryCardList, MemoryDetailBottomSheet} from 'components/Memory';
 import {WriteFloatingButton} from 'components/Write';
 
 function HomeScreen() {
@@ -13,6 +13,7 @@ function HomeScreen() {
         <MemoryCardList />
       </View>
       <WriteFloatingButton />
+      <MemoryDetailBottomSheet />
     </SafeAreaView>
   );
 }

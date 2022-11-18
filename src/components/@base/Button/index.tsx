@@ -1,25 +1,31 @@
-import {Text, PressableProps, Pressable} from 'react-native';
+import {Text, PressableProps} from 'react-native';
 import React from 'react';
+import styled from '@emotion/native';
 
 type Props = PressableProps & {
+  bgColor?: string;
   children: React.ReactNode;
 };
 
-function Button({children, disabled, ...rest}: Props) {
+function Button({bgColor = '#fff', children, disabled, ...rest}: Props) {
   return (
-    <Pressable
+    <StyledButton
+      disabled={disabled}
       {...rest}
-      className={`${
-        disabled ? 'bg-gray-200' : 'bg-white'
-      } items-center justify-center p-4 rounded-2xl`}>
+      bgColor={disabled ? '#e2e8f0' : bgColor}
+      className="items-center justify-center p-4 rounded-2xl">
       <Text
         className={`${
           disabled ? 'text-gray-400' : 'text-black'
         } text-lg font-primary`}>
         {children}
       </Text>
-    </Pressable>
+    </StyledButton>
   );
 }
 
 export default Button;
+
+const StyledButton = styled.Pressable<{bgColor: string}>`
+  background-color: ${props => props.bgColor};
+`;

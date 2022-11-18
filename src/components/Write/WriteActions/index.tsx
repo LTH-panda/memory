@@ -9,8 +9,8 @@ import {RootStackNavigationProp} from 'navigations/RootStack/types';
 
 function WriteActions() {
   const {replace} = useNavigation<RootStackNavigationProp>();
-  const {content, color, icon} = useWriteStore();
-  const {saveMemory} = useMemoryStore();
+  const {mode, id, content, color, icon, time} = useWriteStore();
+  const {saveMemory, editMemory} = useMemoryStore();
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
@@ -19,20 +19,24 @@ function WriteActions() {
   }, [content]);
 
   const onFinishPress = useCallback(() => {
-    saveMemory({
-      id: shortid.generate(),
+    const memory = {
+      id: id ?? shortid.generate(),
       content,
       color,
       icon,
-      time: Date.now(),
-    });
+      time: time || Date.now(),
+    };
+
+    if (mode === 'add') saveMemory(memory);
+    else editMemory(memory);
+
     replace('MainTab');
-  }, [content, color, icon]);
+  }, [mode, content, color, icon]);
 
   return (
-    <View className="absolute inset-x-0 px-4 bottom-10">
+    <View className="my-2">
       <Button onPress={onFinishPress} disabled={disabled}>
-        추가
+        완료
       </Button>
     </View>
   );
