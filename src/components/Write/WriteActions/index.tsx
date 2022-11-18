@@ -8,7 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 import {RootStackNavigationProp} from 'navigations/RootStack/types';
 
 function WriteActions() {
-  const {replace} = useNavigation<RootStackNavigationProp>();
+  const {navigate} = useNavigation<RootStackNavigationProp>();
   const {mode, id, content, color, icon, time} = useWriteStore();
   const {saveMemory, editMemory} = useMemoryStore();
   const [disabled, setDisabled] = useState(true);
@@ -30,7 +30,7 @@ function WriteActions() {
     if (mode === 'add') saveMemory(memory);
     else editMemory(memory);
 
-    replace('MainTab');
+    navigate('MainTab');
   }, [mode, content, color, icon]);
 
   return (
