@@ -1,4 +1,4 @@
-import {Pressable} from 'react-native';
+import {Platform, Pressable} from 'react-native';
 import React, {useCallback} from 'react';
 import {SvgIcon} from 'components/@base';
 import {useNavigation} from '@react-navigation/native';
@@ -22,7 +22,10 @@ function WriteFloatingButton() {
     <Pressable
       onPress={onPress}
       hitSlop={4}
-      className="absolute self-start p-4 bg-white rounded-full shadow bottom-10 right-5">
+      className={`${
+        Platform.OS === 'ios' && 'shadow'
+      } absolute self-start p-4 bg-white rounded-full bottom-10 right-5`}
+      style={{elevation: 5}}>
       <SvgIcon name="plusCirlce" size={28} />
     </Pressable>
   );

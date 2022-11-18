@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, Platform} from 'react-native';
 import React from 'react';
 import {SvgIcon} from 'components/@base';
 import styled from '@emotion/native';
@@ -21,7 +21,11 @@ function MemoryCardBase({
   const {now} = useNow();
 
   return (
-    <View className="w-full p-4 bg-white shadow-sm rounded-2xl aspect-square">
+    <View
+      className={`${
+        Platform.OS === 'ios' && 'shadow-sm'
+      } w-full p-4 bg-white rounded-2xl aspect-square`}
+      style={{elevation: 2}}>
       <Title color={color} className="text-lg font-primary">
         {content || 'memory'}
       </Title>
