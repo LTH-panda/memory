@@ -12,6 +12,7 @@ function WriteMemoryInput() {
         placeholder="기록할 일을 적어보세요"
         value={content}
         onChangeText={setContent}
+        maxLength={15}
       />
     </View>
   );
