@@ -14,6 +14,7 @@ function MainTab() {
         tabBarShowLabel: false,
         tabBarActiveTintColor: '#64748b',
         tabBarInactiveTintColor: '#e2e8f0',
+        tabBarStyle: {height: 72},
       }}>
       <Tab.Screen
         name="Home"
