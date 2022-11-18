@@ -2,11 +2,14 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeScreen, SettingsScreen} from 'screens';
 import {SvgIcon} from 'components/@base';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {MainTabParamList} from './types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 function MainTab() {
+  const {bottom} = useSafeAreaInsets();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -14,7 +17,7 @@ function MainTab() {
         tabBarShowLabel: false,
         tabBarActiveTintColor: '#64748b',
         tabBarInactiveTintColor: '#e2e8f0',
-        tabBarStyle: {height: 72},
+        tabBarStyle: {height: 72 + bottom},
       }}>
       <Tab.Screen
         name="Home"
