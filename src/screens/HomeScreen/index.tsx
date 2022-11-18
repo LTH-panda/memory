@@ -9,7 +9,7 @@ function HomeScreen() {
   return (
     <SafeAreaView edges={['top']} className="flex-1 bg-beige">
       <Header title="memory" />
-      <View className="flex-1 p-2">
+      <View className="p-2">
         <MemoryCardList />
       </View>
       <WriteFloatingButton />

@@ -26,6 +26,7 @@ function MemoryCardList() {
       showsVerticalScrollIndicator={false}
       removeClippedSubviews
       windowSize={16}
+      contentContainerStyle={{paddingBottom: 50}}
     />
   );
 }
