@@ -9,7 +9,7 @@ type Props = {
 
 function Header({title, back}: Props) {
   return (
-    <View className="flex-row items-center justify-between px-4 py-2">
+    <View className="flex-row items-center justify-between p-4">
       {title && (
         <Text className="text-xl text-black font-primary">{title}</Text>
       )}
